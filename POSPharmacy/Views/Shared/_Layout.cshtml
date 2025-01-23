@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - POSPharmacy</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/POSPharmacy.styles.css" asp-append-version="true" />
+	<link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+    </header>
+    <div class="">
+        <main role="main" class="">
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+    <footer class="border-top footer text-muted fixed-bottom" style="background-color:white;">
+        <div class="app-wrapper-footer py-3">
+            <div class="app-footer d-flex justify-content-md-around">
+                <button type="button" class="btn btn-danger px-4 py-3 rounded">Reset</button>
+                <button type="button" class="btn btn-info px-4 py-3 rounded">Add info</button>
+                <button type="button" class="btn btn-danger px-4 py-3 rounded">Discount</button>
+                <button type="button" class="btn btn-warning px-4 py-3 rounded">Draft</button>
+                <button type="button" class="btn btn-light px-4 py-3 rounded">Total</button>
+                <button type="button" class="btn btn-secondary px-4 py-3 rounded">Secondary</button>
+
+                <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="btn btn-success px-4 py-3 rounded">Payment ></button>
+            </div>
+        </div>
+    </footer>
+
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Order payment</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="d-flex justify-content-between">
+                <p>Total Amount</p>
+                <p>Tk 660.00</p>
+            </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-6 mt-4" style="height: 200px;">
+                        <div class="card text-center" style="width: 7rem;">
+                            <div class="card-body">
+                        <i class="bi bi-cash-coin fs-4"></i>
+                        <p>Cash</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-6 mt-4" style="height: 200px;">
+                        <div class="card text-center" style="width: 7rem;">
+                            <div class="card-body">
+                            <i class="bi bi-credit-card  fs-4"></i>
+                        <p>Bank/Card</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-6 mt-4" style="height: 200px;">
+                        <div class="card text-center" style="width: 7rem;">
+                            <div class="card-body">
+                            <i class="bi bi-wallet  fs-4"></i>
+                        <p>MFS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
