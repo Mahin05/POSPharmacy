@@ -22,60 +22,90 @@
 
     <footer class="border-top footer text-muted fixed-bottom" style="background-color:white;">
         <div class="app-wrapper-footer py-3">
-            <div class="app-footer d-flex justify-content-md-around">
-                <button type="button" class="btn btn-danger px-4 py-3 rounded">Reset</button>
-                <button type="button" class="btn btn-info px-4 py-3 rounded">Add info</button>
-                <button type="button" class="btn btn-danger px-4 py-3 rounded">Discount</button>
-                <button type="button" class="btn btn-warning px-4 py-3 rounded">Draft</button>
-                <button type="button" class="btn btn-light px-4 py-3 rounded">Total</button>
-                <button type="button" class="btn btn-secondary px-4 py-3 rounded">Secondary</button>
-
-                <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="btn btn-success px-4 py-3 rounded">Payment ></button>
+            <div class="app-footer d-flex flex-column flex-lg-row justify-content-md-around">
+                <button type="button" class="btn btn-danger px-4 py-3 rounded mb-2 mb-lg-0 w-100 w-lg-auto">Reset</button>
+                <button type="button" class="btn btn-info px-4 py-3 rounded mb-2 mb-lg-0 w-100 w-lg-auto">Add info</button>
+                <button type="button" class="btn btn-danger px-4 py-3 rounded mb-2 mb-lg-0 w-100 w-lg-auto">Discount</button>
+                <button type="button" class="btn btn-warning px-4 py-3 rounded mb-2 mb-lg-0 w-100 w-lg-auto">Draft</button>
+                <button type="button" class="btn btn-light px-4 py-3 rounded mb-2 mb-lg-0 w-100 w-lg-auto">Total 660.00Tk.</button>
+                <button type="button" class="btn btn-secondary px-4 py-3 rounded mb-2 mb-lg-0 w-100 w-lg-auto">Secondary</button>
+                <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="btn btn-success px-4 py-3 rounded w-100 w-lg-auto">Payment ></button>
             </div>
+
         </div>
     </footer>
 
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="width: 38%;">
         <div class="offcanvas-header">
             <h5 id="offcanvasRightLabel">Order payment</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <div class="d-flex justify-content-between">
-                <p>Total Amount</p>
-                <p>Tk 660.00</p>
-            </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-6 mt-4" style="height: 200px;">
-                        <div class="card text-center" style="width: 7rem;">
-                            <div class="card-body">
-                        <i class="bi bi-cash-coin fs-4"></i>
-                        <p>Cash</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-6 mt-4" style="height: 200px;">
-                        <div class="card text-center" style="width: 7rem;">
-                            <div class="card-body">
-                            <i class="bi bi-credit-card  fs-4"></i>
-                        <p>Bank/Card</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-6 mt-4" style="height: 200px;">
-                        <div class="card text-center" style="width: 7rem;">
-                            <div class="card-body">
-                            <i class="bi bi-wallet  fs-4"></i>
-                        <p>MFS</p>
-                            </div>
-                        </div>
+        <div class="d-flex justify-content-between">
+            <p>Total Amount</p>
+            <p>Tk 660.00</p>
+        </div>
+        <div class="row mb-4">
+            <div class="col-lg-4 col-md-4 col-6 mt-2">
+                <div class="card text-center"  style="width: 7rem;">
+                    <div class="card-body">
+                <i class="bi bi-cash-coin fs-4"></i>
+                <p>Cash</p>
                     </div>
                 </div>
             </div>
+            <div class="col-lg-4 col-md-4 col-6 mt-2">
+                <div class="card text-center"  style="width: 7rem;">
+                    <div class="card-body">
+                    <i class="bi bi-credit-card  fs-4"></i>
+                <p>Bank/Card</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-6 mt-2">
+                <div class="card text-center"  style="width: 7rem;">
+                    <div class="card-body">
+                    <i class="bi bi-wallet  fs-4"></i>
+                <p>MFS</p>
+                    </div>
+                </div>
+            </div>
+            </div>
 
-
-
+            <span>Input amount</span>
+            <div class="d-flex justify-content-around">
+                <input type="text" name="name" value="0" class="text-center" style="border: 1px solid #80808040;
+    width: 95%;" />
+            </div>
+            <div class="mt-3">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>Token</td>
+                            <td>0.00</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td>0.00</td>
+                        </tr>
+                        <tr>
+                            <td>Paid</td>
+                            <td>0.00</td>
+                        </tr>
+                        <tr>
+                            <td>Due</td>
+                            <td>0.00</td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td>0.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

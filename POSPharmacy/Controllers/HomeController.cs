@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using OnlineBookOrderManagementSystem.Repositories.IRepository;
 using POSPharmacy.Models;
 
@@ -32,5 +33,14 @@ namespace POSPharmacy.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        #region API
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var products = _unitOfWork.Product.GetAll().ToList();
+            return Json(new { data = products });
+        }
+        #endregion
     }
 }

@@ -18,7 +18,7 @@
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
             <div class="app-header__logo">
-                <div class="logo-src"></div>
+                <img class="w-25" src="~/assets/images.jfif" />
                 <div class="header__pane ml-auto">
                     <div>
                         <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -55,26 +55,6 @@
                         </div>
                         <button class="close"></button>
                     </div>
-                    <ul class="header-menu nav">
-                        <li class="nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-database"> </i>
-                                Statistics
-                            </a>
-                        </li>
-                        <li class="btn-group nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-edit"></i>
-                                Projects
-                            </a>
-                        </li>
-                        <li class="dropdown nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-cog"></i>
-                                Settings
-                            </a>
-                        </li>
-                    </ul>
                 </div>
                 <div class="app-header-right">
                     <div class="header-btn-lg pr-0">
@@ -481,10 +461,10 @@
                     <div class="row mb-5">
                         <div class="col-lg-6 col-md-6 col-12">
                             <span>Total Medicine <span class="fw-bold">(@ViewBag.count)</span></span>
-                            <div class="row" style="height: 450px; overflow-y: auto;overflow-x:hidden;">
-                                @foreach (var item in Model)
+                            <div class="row" style="height: 450px; overflow-y: auto;overflow-x:hidden;" id="parentCard">
+                               @*  @foreach (var item in Model)
                                 {
-                                    <div class="col-lg-4 col-md-4 col-6 mt-4" style="height: 200px;">
+                                    <div class="col-lg-4 col-md-4 col-6 mt-2">
                                         <div class="card" style="width: 9rem;">
                                             <div class="card-body">
                                                 <i class="bi bi-capsule-pill fs-4"></i>
@@ -501,7 +481,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                }
+                                } *@
                             </div>
 
                         </div>
@@ -522,112 +502,94 @@
                                             <table class="align-middle mb-0 table table-borderless table-striped table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th class="text-center">#</th>
-                                                        <th>Name</th>
-                                                        <th class="text-center">City</th>
-                                                        <th class="text-center">Status</th>
-                                                        <th class="text-center">Actions</th>
+                                                        <th class="text-center">Item</th>
+                                                        <th class="text-center">Unit</th>
+                                                        <th class="text-center">Price</th>
+                                                        <th class="text-center">Qty</th>
+                                                        <th class="text-center">Disc%</th>
+                                                        <th class="text-center">Subtotal</th>
+                                                        <th class="text-center"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td class="text-center text-muted">#345</td>
+                                                        <td class="text-center text-muted">Paracetamol 500mg</td>
                                                         <td>
-                                                            <div class="widget-content p-0">
-                                                                <div class="widget-content-wrapper">
-                                                                    <div class="widget-content-left mr-3">
-                                                                        <div class="widget-content-left">
-                                                                            <img width="40" class="rounded-circle" src="assets/images/avatars/4.jpg" alt="">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="widget-content-left flex2">
-                                                                        <div class="widget-heading">John Doe</div>
-                                                                        <div class="widget-subheading opacity-7">Web Developer</div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                            <select class="form-select" style="width: 100px; margin: auto;">
+                                                                <option value="Pcs">Pcs</option>
+                                                                <option value="Box">Box</option>
+                                                            </select>
                                                         </td>
-                                                        <td class="text-center">Madrid</td>
+                                                        <td class="text-center">300</td>
                                                         <td class="text-center">
-                                                            <div class="badge badge-warning">Pending</div>
+                                                            <i class="bi bi-dash-circle" onclick="decreaseQty(this)"></i>
+                                                            <input type="text" value="1" style="width: 50px; text-align: center;" readonly />
+                                                            <i class="bi bi-plus-circle" onclick="increaseQty(this)"></i>
                                                         </td>
+                                                        <td class="text-center text-muted">99</td>
+                                                        <td class="text-center text-muted">300</td>
                                                         <td class="text-center">
-                                                            <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm">Details</button>
+                                                            <i class="bi bi-trash text-danger" onclick="deleteRow(this)"></i>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-center text-muted">#347</td>
+                                                        <td class="text-center text-muted">Paracetamol 500mg</td>
                                                         <td>
-                                                            <div class="widget-content p-0">
-                                                                <div class="widget-content-wrapper">
-                                                                    <div class="widget-content-left mr-3">
-                                                                        <div class="widget-content-left">
-                                                                            <img width="40" class="rounded-circle" src="assets/images/avatars/3.jpg" alt="">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="widget-content-left flex2">
-                                                                        <div class="widget-heading">Ruben Tillman</div>
-                                                                        <div class="widget-subheading opacity-7">Etiam sit amet orci eget</div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                            <select class="form-select" style="width: 100px; margin: auto;">
+                                                                <option value="Pcs">Pcs</option>
+                                                                <option value="Box">Box</option>
+                                                            </select>
                                                         </td>
-                                                        <td class="text-center">Berlin</td>
+                                                        <td class="text-center">300</td>
                                                         <td class="text-center">
-                                                            <div class="badge badge-success">Completed</div>
+                                                            <i class="bi bi-dash-circle" onclick="decreaseQty(this)"></i>
+                                                            <input type="text" value="1" style="width: 50px; text-align: center;" readonly />
+                                                            <i class="bi bi-plus-circle" onclick="increaseQty(this)"></i>
                                                         </td>
+                                                        <td class="text-center text-muted">99</td>
+                                                        <td class="text-center text-muted">300</td>
                                                         <td class="text-center">
-                                                            <button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm">Details</button>
+                                                            <i class="bi bi-trash text-danger" onclick="deleteRow(this)"></i>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-center text-muted">#321</td>
+                                                        <td class="text-center text-muted">Paracetamol 500mg</td>
                                                         <td>
-                                                            <div class="widget-content p-0">
-                                                                <div class="widget-content-wrapper">
-                                                                    <div class="widget-content-left mr-3">
-                                                                        <div class="widget-content-left">
-                                                                            <img width="40" class="rounded-circle" src="assets/images/avatars/2.jpg" alt="">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="widget-content-left flex2">
-                                                                        <div class="widget-heading">Elliot Huber</div>
-                                                                        <div class="widget-subheading opacity-7">Lorem ipsum dolor sic</div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                            <select class="form-select" style="width: 100px; margin: auto;">
+                                                                <option value="Pcs">Pcs</option>
+                                                                <option value="Box">Box</option>
+                                                            </select>
                                                         </td>
-                                                        <td class="text-center">London</td>
+                                                        <td class="text-center">300</td>
                                                         <td class="text-center">
-                                                            <div class="badge badge-danger">In Progress</div>
+                                                            <i class="bi bi-dash-circle" onclick="decreaseQty(this)"></i>
+                                                            <input type="text" value="1" style="width: 50px; text-align: center;" readonly />
+                                                            <i class="bi bi-plus-circle" onclick="increaseQty(this)"></i>
                                                         </td>
+                                                        <td class="text-center text-muted">99</td>
+                                                        <td class="text-center text-muted">300</td>
                                                         <td class="text-center">
-                                                            <button type="button" id="PopoverCustomT-3" class="btn btn-primary btn-sm">Details</button>
+                                                            <i class="bi bi-trash text-danger" onclick="deleteRow(this)"></i>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-center text-muted">#55</td>
+                                                        <td class="text-center text-muted">Paracetamol 500mg</td>
                                                         <td>
-                                                            <div class="widget-content p-0">
-                                                                <div class="widget-content-wrapper">
-                                                                    <div class="widget-content-left mr-3">
-                                                                        <div class="widget-content-left">
-                                                                            <img width="40" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="widget-content-left flex2">
-                                                                        <div class="widget-heading">Vinnie Wagstaff</div>
-                                                                        <div class="widget-subheading opacity-7">UI Designer</div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                            <select class="form-select" style="width: 100px; margin: auto;">
+                                                                <option value="Pcs">Pcs</option>
+                                                                <option value="Box">Box</option>
+                                                            </select>
                                                         </td>
-                                                        <td class="text-center">Amsterdam</td>
+                                                        <td class="text-center">300</td>
                                                         <td class="text-center">
-                                                            <div class="badge badge-info">On Hold</div>
+                                                            <i class="bi bi-dash-circle" onclick="decreaseQty(this)"></i>
+                                                            <input type="text" value="1" style="width: 50px; text-align: center;" readonly />
+                                                            <i class="bi bi-plus-circle" onclick="increaseQty(this)"></i>
                                                         </td>
+                                                        <td class="text-center text-muted">99</td>
+                                                        <td class="text-center text-muted">300</td>
                                                         <td class="text-center">
-                                                            <button type="button" id="PopoverCustomT-4" class="btn btn-primary btn-sm">Details</button>
+                                                            <i class="bi bi-trash text-danger" onclick="deleteRow(this)"></i>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -660,3 +622,91 @@
     <script type="text/javascript" src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js"></script>
 </body>
 </html>
+
+
+@section Scripts{
+
+    <script type="text/javascript">
+        function updateSubtotal(element) {
+            const row = element.closest("tr");
+            const price = 300; // Fixed price
+            const qty = parseInt(row.querySelector("input[type='text']").value, 10) || 0;
+            const discount = parseFloat(row.querySelector("input[type='text'][value]").value) || 0;
+
+            // Calculate subtotal
+            const subtotal = qty * price * ((100 - discount) / 100);
+            row.querySelector(".subtotal").textContent = subtotal.toFixed(2);
+        }
+
+        function increaseQty(button) {
+            const row = button.closest("tr");
+            const qtyInput = row.querySelector("input[type='text']");
+            let qty = parseInt(qtyInput.value, 10) || 0;
+            qty++;
+            qtyInput.value = qty;
+
+            // Update subtotal
+            updateSubtotal(qtyInput);
+        }
+
+        function decreaseQty(button) {
+            const row = button.closest("tr");
+            const qtyInput = row.querySelector("input[type='text']");
+            let qty = parseInt(qtyInput.value, 10) || 0;
+
+            if (qty > 0) qty--;
+            qtyInput.value = qty;
+
+            // Update subtotal
+            updateSubtotal(qtyInput);
+        }
+
+        function deleteRow(button) {
+            const row = button.closest("tr");
+            row.remove();
+        }
+
+
+
+
+
+            $(document).ready(function () {
+            $.ajax({
+                url: 'Home/GetAll',
+                method: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    console.log("responsedata", response);
+                    if (response.data) {
+                        console.log(response.data);
+                          for (i = 0; i < response.data.length; i++) {
+                            var item = response.data[i];
+                            var parentDiv =document.getElementById("parentCard");
+                            var card = `<div class="col-lg-4 col-md-4 col-6 mt-2">
+                                <div class="card" style="width: 9rem;">
+                                    <div class="card-body">
+                                        <i class="bi bi-capsule-pill fs-4"></i>
+                                        ${
+                                            item.qty === 0
+                                            ? '<span class="text-danger" style="font-size: 12px;">Out of stock</span>'
+                                            : `<span>In stock <span class="text-success" style="font-size: 12px;">${item.qty}</span></span>`
+                                        }
+                                        <h5 class="card-title">${item.name}</h5>
+                                        <p class="card-text">Tk. ${item.price}</p>
+                                    </div>
+                                </div>
+                            </div>`;
+                            parentDiv.innerHTML += card;
+                        }
+                    }
+                    else {
+                        console.log("No data found.");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("An error occurred: " + error);
+                }
+            });
+        });
+    </script>
+}
